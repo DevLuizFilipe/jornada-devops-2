@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conversao-temperatura
+spec:
+  replicas: 1  # número de réplicas do aplicativo
+  selector:
+    matchLabels:
+      app: conversao-temperatura
+  template:
+    metadata:
+      labels:
+        app: conversao-temperatura
+    spec:
+      containers:
+        - name: conversao-temperatura
+          image: luizfilipesm/conversao-temperatura:0.0.1  # nome da imagem e tag
+          ports:
+            - containerPort: 8080  # porta do container
